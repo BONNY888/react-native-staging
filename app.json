@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "bonny-live",
+    "name": "bonny-live-staging",
     "description": "This project is really great.",
-    "slug": "bonny-live",
+    "slug": "bonny-live-staging",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": [
