@@ -1,33 +1,66 @@
 import React from 'react'
-import { View, Button, alert, Text, StyleSheet, Share, WebView } from 'react-native'
+import { View, Button, Alert, Text, StyleSheet, Share, WebView, BackHandler } from 'react-native'
 import createInvoke from 'react-native-webview-invoke/native'
+var Geolocation = require('Geolocation');
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      message: 'hahahaha'
+      message: 'Get Geolocation',
+      location: {}
     };
-    
   }
+  webview: WebView
+  invoke = createInvoke(() => this.webview)
   // webInitialize = () => {
     
   // }
   webWannaGet = () => {
-    return 'haha!!'
+    return this.state.location;
   }
   webWannaSet = (data) => {
     this.setState({ message: data })
   }
+
+  handleBackPress = () => {
+    this.webview.goBack();
+    return true  ;
+  }
   
-  invoke = createInvoke(() => this.webview)
   componentDidMount() {
     this.invoke
       // .define('init', this.webInitialize)
       .define('get', this.webWannaGet)
       .define('set', this.webWannaSet)
+
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.getLocation();
   }
-  webview: WebView
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+
+  //get geolocation
+  getLocation() {
+    Geolocation.getCurrentPosition(
+        location => {
+            var coords = {
+              longitude: location.coords.longitude,
+              latitude: location.coords.latitude
+            }
+            this.setState(previousState => (
+              { location: coords }
+            ))
+        },
+        error => {
+          Alert.alert("获取位置失败："+ error)
+        }
+    );
+ }
+
 
   render() {
     const patchPostMessageFunction = function() {
@@ -57,13 +90,13 @@ export default class App extends React.Component {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-          <Text>{this.state.message}</Text>
+          <Text style={styles.item} onPress={this.getLocation.bind(this)}>{this.state.message}</Text>
           </View> */}
           <WebView
             injectedJavaScript={patchPostMessageJsCode}
             ref={w => this.webview = w}
             // source={require('./index.html')}
-            source={{uri: 'https://ee9c318d.ngrok.io'}}
+            source={{uri: 'https://b98f0326.ngrok.io'}}
             onMessage={this.invoke.listener}
             style={styles.container} />
         </View>
