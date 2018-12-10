@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Button, Alert, Text, StyleSheet, Share, WebView, BackHandler } from 'react-native'
+import { View, Button, Alert, Text, StyleSheet, Share, WebView, BackHandler, StatusBar } from 'react-native'
 import createInvoke from 'react-native-webview-invoke/native'
 var Geolocation = require('Geolocation');
 
@@ -8,7 +8,8 @@ export default class App extends React.Component {
     super(props);
     this.state = { 
       message: 'Get Geolocation',
-      location: {}
+      location: {},
+      showBackButton: false
     };
   }
   webview: WebView
@@ -27,10 +28,15 @@ export default class App extends React.Component {
     this.webview.goBack();
     return true  ;
   }
+
+  navStateChange = (state) => {
+    let title = state.title;
+    let isInclue = title.includes('波力雲羽集')
+    this.setState({showBackButton: !isInclue})
+  }
   
   componentDidMount() {
     this.invoke
-      // .define('init', this.webInitialize)
       .define('get', this.webWannaGet)
       .define('set', this.webWannaSet)
 
@@ -41,7 +47,6 @@ export default class App extends React.Component {
   componentWillUnmount() {
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
   }
-
 
   //get geolocation
   getLocation() {
@@ -63,6 +68,22 @@ export default class App extends React.Component {
 
 
   render() {
+    const backButton = <View
+    style={{
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+      height: 35,
+      backgroundColor: '#c30d22',
+    }}>
+    <Button
+      onPress={this.handleBackPress}
+      title="< Back"
+      color="#ffffff"
+    />
+  </View>;
+
     const patchPostMessageFunction = function() {
         var originalPostMessage = window.postMessage;
     
@@ -92,13 +113,19 @@ export default class App extends React.Component {
           }}>
           <Text style={styles.item} onPress={this.getLocation.bind(this)}>{this.state.message}</Text>
           </View> */}
+          <StatusBar
+            barStyle="light-content"
+          />
           <WebView
             injectedJavaScript={patchPostMessageJsCode}
             ref={w => this.webview = w}
             // source={require('./index.html')}
-            source={{uri: 'https://b98f0326.ngrok.io'}}
+            source={{uri: 'https://staging.bonnylive.biz/'}}
             onMessage={this.invoke.listener}
-            style={styles.container} />
+            style={styles.container}
+            onNavigationStateChange={this.navStateChange.bind(this)}
+            />
+          {this.state.showBackButton && backButton}
         </View>
       )
   }
@@ -111,15 +138,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 })
