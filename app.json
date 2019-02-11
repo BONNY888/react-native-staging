@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "bonny-live-staging",
+    "name": "雲羽集Bonny-badminton",
     "description": "This project is really great.",
-    "slug": "bonny-live-staging",
+    "slug": "Bonny-badminton",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": [
@@ -13,9 +13,9 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/loadingpage4.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#cb0321"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -24,7 +24,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bonnylive.bonnylive"
+    },
+    "android": {
+      "package": "com.bonnylive.bonnylive"
     }
   }
 }
