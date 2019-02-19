@@ -14,14 +14,16 @@ export default class App extends React.Component {
       showFooter: false,
       showHeader: true,
       showLOGO: false,
-      url: 'https://staging.bonnylive.biz/',
       // url: 'https://ac9a8d3c.ngrok.io/',
-      nowURL: '',
-      originURL: 'https://staging.bonnylive.biz/',
       // originURL: 'https://ac9a8d3c.ngrok.io/',
+      url: 'https://staging.bonnylive.biz/',
+      originURL: 'https://staging.bonnylive.biz/',
+      footerChangeURL: '',
+      nowURL: '',
       key: 0,
       path: '',
-      loading: false
+      loading: false,
+      isBadminton: false
     };
   }
   webview: WebView
@@ -44,25 +46,32 @@ export default class App extends React.Component {
   }
 
   navStateChange = (state) => {
-    let title = state.title;
+    state.url.split(':')[0] == 'https' && this.setState({
+      // loading: state.loading,
+      loading: true,
+      nowURL: state.url,
+      isBadminton: state.url.includes(this.state.originURL)
+    })
+    // this.state.isBadminton && this.setState({showHeader: true})
     this.setState({
-      showBackButton: (title.includes('波力雲羽集') ? false : true),
-      showFooter: (this.state.nowURL == this.state.originURL ? false : true),
+      showBackButton: !this.state.isBadminton,
+      showFooter: !this.state.isBadminton,
       showLOGO: false
     })
-    this.state.nowURL.includes(this.state.originURL) && this.setState({showHeader: this.state.loading})
-    state.url.split(':')[0] == 'https' && this.setState({loading: state.loading})
-    state.url.split(':')[0] == 'https' && this.setState({nowURL: state.url})
+    state.url == "https://staging.bonnylive.biz/Login" ? false : state.url != this.state.url && this.setState({
+      url: state.url,
+      key: this.state.key + 1
+    })
     setTimeout(() => {
       this.setState({
         loading: false,
         showHeader: false,
-        showLOGO: this.state.nowURL.includes(this.state.originURL)
+        // showLOGO: this.state.nowURL.includes(this.state.originURL)
       })
-    }, 3000)
-    console.log(this.state)
+    }, 1000)
+    state.url.split(':')[0] == 'https' && console.log(this.state, state)
   }
-  
+
   componentDidMount() {
     this.invoke
       .define('get', this.webWannaGet)
@@ -215,9 +224,11 @@ export default class App extends React.Component {
         style={styles.footer_nav_content}
       onPress={()=> {
         console.log('jump!!!!', this.state.key)
-        this.setState({
+        this.state.url != 'https://staging.bonnylive.biz/activitySignUp' && this.setState({
+          loading: true,
           showHeader: true,
           url: 'https://staging.bonnylive.biz/activitySignUp',
+          footerChangeURL: 'https://staging.bonnylive.biz/activitySignUp',
           key: this.state.key + 1
         })
       }}>
@@ -230,9 +241,11 @@ export default class App extends React.Component {
         style={styles.footer_nav_content}
       onPress={()=> {
         console.log('jump!!!!', this.state.key)
-        this.setState({
+        this.state.url != 'https://staging.bonnylive.biz/newGroup' && this.setState({
+          loading: true,
           showHeader: true,
           url: 'https://staging.bonnylive.biz/newGroup',
+          footerChangeURL: 'https://staging.bonnylive.biz/newGroup',
           key: this.state.key + 1
         })
       }}>
@@ -245,9 +258,11 @@ export default class App extends React.Component {
         style={styles.footer_nav_content}
         onPress={()=> {
           console.log('jump!!!!', this.state.key)
-          this.setState({
+          this.state.url != 'https://www.bonny-live.com/WebDocument/SportCategory' && this.setState({
+            loading: true,
             showLOGO: false,
             url: 'https://www.bonny-live.com/WebDocument/SportCategory',
+            footerChangeURL: 'https://www.bonny-live.com/WebDocument/SportCategory',
             key: this.state.key + 1
           })
         }}>
@@ -259,27 +274,31 @@ export default class App extends React.Component {
       <TouchableOpacity
         style={styles.footer_nav_content}
         onPress={()=> {
-          console.log('jump!!!!', this.state.key)
-          this.setState({
+          this.state.url != 'https://www.bonny-live.com/Live/List' && this.setState({
+            loading: true,
             showLOGO: false,
             url: 'https://www.bonny-live.com/Live/List',
+            footerChangeURL: 'https://www.bonny-live.com/Live/List',
             key: this.state.key + 1
           })
+          console.log('jump!!!!', this.state)
         }}>
       <Image source={require('./assets/HotLiveMenu.png')} style={{width: 40, height: 40}} />
       <Text
         style={styles.footer_nav_text}
-      >LIVE直播</Text>
+      >Live直播</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.footer_nav_last_content}
         onPress={()=> {
-          console.log('jump!!!!', this.state.key)
-          this.setState({
+          this.state.url != 'https://staging.bonnylive.biz/myInfo' && this.setState({
+            loading: true,
             showHeader: true,
             url: 'https://staging.bonnylive.biz/myInfo',
+            footerChangeURL: 'https://staging.bonnylive.biz/myInfo',
             key: this.state.key + 1
           })
+          console.log('after', this.state)
         }}>
       <Image source={require('./assets/MyBonnyMenu.png')} style={{width: 40, height: 40}} />
       <Text
@@ -363,6 +382,6 @@ const styles = StyleSheet.create({
   footer_nav_text: {
     color: "#ffffff",
     fontSize: 10,
-    paddingTop: 1
+    paddingTop: 3
   }
 })

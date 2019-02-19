@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 83338,
+  "expoServerNgrokUrl": "https://e7-bwa.bonnytech.bonny-live-staging.exp.direct",
+  "packagerNgrokUrl": "https://packager.e7-bwa.bonnytech.bonny-live-staging.exp.direct",
+  "ngrokPid": 83354
 }
