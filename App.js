@@ -11,11 +11,11 @@ export default class App extends React.Component {
       message: 'Get Geolocation',
       location: {},
       showBackButton: false,
-      showFooter: false,
+      showFooter: true,
       showHeader: true,
       showLOGO: false,
-      // url: 'https://ac9a8d3c.ngrok.io/',
-      // originURL: 'https://ac9a8d3c.ngrok.io/',
+      // url: 'https://ca9969a8.ngrok.io/',
+      // originURL: 'https://ca9969a8.ngrok.io/',
       url: 'https://staging.bonnylive.biz/',
       originURL: 'https://staging.bonnylive.biz/',
       footerChangeURL: '',
@@ -23,7 +23,7 @@ export default class App extends React.Component {
       key: 0,
       path: '',
       loading: false,
-      isBadminton: false
+      isBadminton: false,
     };
   }
   webview: WebView
@@ -50,14 +50,10 @@ export default class App extends React.Component {
       // loading: state.loading,
       loading: true,
       nowURL: state.url,
-      isBadminton: state.url.includes(this.state.originURL)
+      showBackButton: !state.url.includes(this.state.originURL),
+      showFooter: !state.url.includes(this.state.originURL),
     })
     // this.state.isBadminton && this.setState({showHeader: true})
-    this.setState({
-      showBackButton: !this.state.isBadminton,
-      showFooter: !this.state.isBadminton,
-      showLOGO: false
-    })
     state.url == "https://staging.bonnylive.biz/Login" ? false : state.url != this.state.url && this.setState({
       url: state.url,
       key: this.state.key + 1
@@ -66,9 +62,8 @@ export default class App extends React.Component {
       this.setState({
         loading: false,
         showHeader: false,
-        // showLOGO: this.state.nowURL.includes(this.state.originURL)
       })
-    }, 1000)
+    }, 3000)
     state.url.split(':')[0] == 'https' && console.log(this.state, state)
   }
 
@@ -330,8 +325,8 @@ export default class App extends React.Component {
           alignContent: 'center',
           justifyContent: 'center'
         }}>
-        {this.state.showBackButton && Object.keys(Constants.platform)[0] == 'ios' && backButton}
-        {this.state.showFooter && footer}
+        {this.state.showBackButton && !this.state.loading && Object.keys(Constants.platform)[0] == 'ios' && backButton}
+        {this.state.showFooter && !this.state.loading && footer}
         {this.state.loading && loading}
         {this.state.showHeader && header}
         {this.state.showLOGO && logo}
