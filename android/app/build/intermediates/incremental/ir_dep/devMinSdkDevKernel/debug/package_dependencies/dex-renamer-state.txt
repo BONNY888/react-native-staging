@@ -1,0 +1,13 @@
+#Sat Feb 23 14:09:27 CST 2019
+path.3=classes4.dex
+path.2=classes3.dex
+path.1=classes2.dex
+path.0=classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.3=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/10
+base.2=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/10
+base.1=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/10
+base.0=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/transforms/dexMerger/devMinSdkDevKernel/debug/10

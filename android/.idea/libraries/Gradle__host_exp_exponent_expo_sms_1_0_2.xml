@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: host.exp.exponent:expo-sms-1.0.2">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-sms-1.0.2.aar/a1fc7236d6522a548d721ad0b1f362bb/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-sms-1.0.2.aar/a1fc7236d6522a548d721ad0b1f362bb/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../node_modules/expokit/maven/host/exp/exponent/expo-sms/1.0.2/expo-sms-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

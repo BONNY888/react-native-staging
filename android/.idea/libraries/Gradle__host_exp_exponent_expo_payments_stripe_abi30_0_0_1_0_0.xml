@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: host.exp.exponent:expo-payments-stripe-abi30_0_0-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-payments-stripe-abi30_0_0-1.0.0.aar/81c10e7873c8e2b316afb7e67eb70c85/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expo-payments-stripe-abi30_0_0-1.0.0.aar/81c10e7873c8e2b316afb7e67eb70c85/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

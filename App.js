@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Button, Alert, StyleSheet, Text, WebView, BackHandler, StatusBar, Image, TouchableOpacity, ActivityIndicator } from 'react-native'
 import createInvoke from 'react-native-webview-invoke/native';
+import AndroidWebView from 'react-native-webview-file-upload-android';
 import { Constants } from 'expo';
 var Geolocation = require('Geolocation');
 
@@ -338,7 +339,7 @@ export default class App extends React.Component {
             backgroundColor: "black",
             height: Constants.statusBarHeight
           }}></View>
-          <WebView
+          <AndroidWebView
             injectedJavaScript={patchPostMessageJsCode}
             ref={w => this.webview = w}
             source={{uri: this.state.url}}
@@ -346,7 +347,16 @@ export default class App extends React.Component {
             style={styles.container}
             onNavigationStateChange={this.navStateChange.bind(this)}
             scrollEnabled={false}
-            />
+          />
+          {/* <WebView
+            injectedJavaScript={patchPostMessageJsCode}
+            ref={w => this.webview = w}
+            source={{uri: this.state.url}}
+            onMessage={this.invoke.listener}
+            style={styles.container}
+            onNavigationStateChange={this.navStateChange.bind(this)}
+            scrollEnabled={false}
+            /> */}
         </View>
       )
   }

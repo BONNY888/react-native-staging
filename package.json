@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "expo": "^30.0.1",
+    "expokit": "^1.7.1",
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "react-native-webview-file-upload-android": "^1.1.2",
     "react-native-webview-invoke": "^0.3.10"
   }
 }
