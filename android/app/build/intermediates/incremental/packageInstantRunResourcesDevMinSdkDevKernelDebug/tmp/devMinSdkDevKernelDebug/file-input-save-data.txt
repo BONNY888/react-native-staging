@@ -1,0 +1,23 @@
+#Internal package file, do not edit.
+#Mon Feb 25 14:33:42 CST 2019
+2.base=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+0.path=shell-app.bundle
+2.baseType=DIRECTORY
+3.base=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+2.set=ASSET
+1.path=fonts/EmojiOne.ttf
+4.base=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+count=5
+2.path=shell-app-manifest.json
+4.set=ASSET
+3.path=kernel-manifest.json
+3.baseType=DIRECTORY
+1.set=ASSET
+4.path=kernel.android.bundle
+1.baseType=DIRECTORY
+0.base=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+0.baseType=DIRECTORY
+3.set=ASSET
+1.base=/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/assets/devMinSdkDevKernel/debug
+4.baseType=DIRECTORY
+0.set=ASSET

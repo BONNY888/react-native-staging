@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.0.0","enabled":true,"outputFile":"app-devMinSdk-devKernel-release.apk","fullName":"devMinSdkDevKernelRelease","baseName":"devMinSdk-devKernel-release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.bonnylive.bonnylive","split":"","minSdkVersion":"21"}}]

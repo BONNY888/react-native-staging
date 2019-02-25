@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/incremental/mergeDevMinSdkProdKernelReleaseResources/merged.dir/values-en-rSG/values-en-rSG.xml",
+            "map": [
+                {
+                    "source": "/Users/andyka1714/.gradle/caches/transforms-1/files-1.1/play-services-wallet-15.0.1.aar/96bedc4009a65a2aef5f65594fe1db21/res/values-en-rSG/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "204",
+                        "endColumns": "99",
+                        "endOffsets": "303"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "103",
+                        "endOffsets": "154"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+# Referenced at /Users/andyka1714/Desktop/碩格/Bonny LIve/bonny-live-staging/android/app/build/intermediates/manifests/full/prodMinSdkDevKernel/release/AndroidManifest.xml:113
+-keep class host.exp.exponent.MainApplication { <init>(...); }
+
